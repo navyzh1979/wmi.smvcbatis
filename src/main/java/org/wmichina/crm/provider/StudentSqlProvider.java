@@ -293,7 +293,11 @@ public class StudentSqlProvider {
             ORDER_BY(example.getOrderByClause());
         }
         
-        return SQL();
+        String limitSQL = " ";
+        if(example.getStart()!=null && example.getEnd()!=null){
+        	limitSQL =  limitSQL + "limit " + example.getStart() +"," + example.getEnd();
+        }
+        return SQL() + limitSQL;
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {

@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,11 +28,14 @@ import org.wmichina.crm.helper.XLSField;
 import org.wmichina.crm.helper.XLSTemplateBuilder;
 import org.wmichina.crm.helper.XLSTemplateValidator;
 import org.wmichina.crm.helper.XSLReader;
+import org.wmichina.crm.service.StudentService;
 
 @Controller
 @RequestMapping(value = "student")
 public class StudentImportController {
-	
+  
+	@Resource(name="studentService")
+	private StudentService studentService;
 
 	@RequestMapping(value = "to_stlist_import")
 	public ModelAndView toImport() {
@@ -106,7 +110,19 @@ public class StudentImportController {
 							XLSField xlsField = XLSTemplateValidator.STUDENT_FIELDS_USING_XLSKEY.get(titleField);
 							switch(xlsField.getFieldMapping()){
 								case "student_no":{
-									studentInfo.setStudentNo(cellContent);	
+									if(StringUtils.isNotBlank(cellContent)){
+											boolean isStudentNoExists = this.studentService.isStudentNoExists(cellContent);
+											if(isStudentNoExists){
+												wrongInfoDesc.append(xlsField.getFieldName()).append("[").append(cellContent).append("]")
+															.append("学员编号已存在.|");
+												isContentValid = false;
+											}else {
+												studentInfo.setStudentNo(cellContent);	
+											}
+									}else {
+										//TODO: studentNo生成算法待定
+										studentInfo.setStudentNo(cellContent);
+									}
 									break;
 								}
 								case "name":{
@@ -116,7 +132,14 @@ public class StudentImportController {
 								case "email":{
 									if(StringUtils.isNotBlank(cellContent)){
 										if(cellContent.matches(XLSTemplateValidator.EMAIL_PATTERN)){
-											studentInfo.setEmail(cellContent);	
+											boolean isEmailExists = this.studentService.isEmailExists(cellContent);
+											if(isEmailExists){
+												wrongInfoDesc.append(xlsField.getFieldName()).append("[").append(cellContent).append("]")
+															.append("邮件地址已存在.|");
+												isContentValid = false;
+											}else {
+												studentInfo.setEmail(cellContent);	
+											}
 										}else {
 											wrongInfoDesc.append(xlsField.getFieldName())
 											.append("[").append(cellContent).append("]")
@@ -131,9 +154,11 @@ public class StudentImportController {
 								case "mobile":{
 									if(StringUtils.isNotBlank(cellContent)){
 										if(cellContent.matches(XLSTemplateValidator.MOBILE_PATTERN)){
-											boolean isExists = false;
-											if(isExists){
-												
+											boolean isMobileExists = this.studentService.isMobileExists(cellContent);
+											if(isMobileExists){
+												wrongInfoDesc.append(xlsField.getFieldName()).append("[").append(cellContent).append("]")
+												.append("手机号码已存在.|");
+									isContentValid = false;
 											}else{
 												studentInfo.setMobile(cellContent);
 											}	
@@ -157,7 +182,7 @@ public class StudentImportController {
 										}else {
 											wrongInfoDesc.append(xlsField.getFieldName())
 													.append("[").append(cellContent).append("]")
-													.append("内容错误，应为男/女.|");
+													.append("性别错误，应为男或女.|");
 											isContentValid = false;
 										}
 									}else {
