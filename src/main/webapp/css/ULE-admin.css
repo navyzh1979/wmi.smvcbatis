@@ -1,0 +1,15 @@
+@charset "utf-8";
+/*--------------------------
+   邮乐运营中心线上系统管理
+--------------------------*/
+
+/*@header*/
+#header{overflow:hidden;background-color:#c8edff;border:none;}
+.ule-logo{float:left;width:527px;height:50px;background:url(/png/header-bk.png) no-repeat;text-indent:-9999px;}
+.nav{margin-top:20px;padding-right:30px;}
+.nav a{color:#316ac5;}
+.nav li{height:14px;line-height:14px;}
+.nav .handbook{padding-left:20px;border-left:1px solid #999;background:url(http://i0.ulechina.com/tomshopping/i/sys/110301/ule-admin-cs-header-handbook-icon.png) no-repeat 5px 1px;}
+
+/*@menu*/
+#fLeft{padding:5px;background-color:#fafafa;}

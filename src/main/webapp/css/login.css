@@ -1,0 +1,50 @@
+#main{width:100%; height:573px; background:url(/png/4.png) repeat-x;}
+
+
+#login{width:950px; height:433px; padding-top:130px; background:url(/png/2.png) no-repeat; margin:0 auto;}
+#login_window{width:425px; padding:8px; background:#fff; border:1px #DFDFDF solid; margin:0 auto; position:relative;}
+#login_window .msg{background:url(/png/icon.png) no-repeat -200px -240px #FCDADA; padding:0 0 0 60px; width:365px; height:60px; margin:0; display:none;}
+#login_window .msg p{ margin:0; padding:12px 0 0 0; line-height:18px; color:#E83131;}
+#login_window .text{ position:relative; padding:4px 40px; }
+#login_window .text .btn_login{background:url(/png/icon.png) no-repeat 0 -100px  ; width:110px; height:34px; border:none; cursor:pointer;}
+#login_window .text .btn_login:hover{ background-position: 0 -134px;}
+#login_window .text .btn_forget1{background:url(/png/15.png) no-repeat; width:131px; height:34px; border:none; cursor:pointer; position:absolute; top:18px; left:145px; color:#FFFFFF;}
+#login_window .text .btn_forget2{background:url(/png/20.png) no-repeat; width:131px; height:34px; border:none;  position:absolute; top:18px; left:54px; color:#FFFFFF;}
+#login_window .text .btn_forget3{background:url(/png/20.png) no-repeat; width:131px; height:34px; border:none;  position:absolute; top:18px; left:239px; color:#FFFFFF;}
+#login_window .text .btn_forget4{background:url(/png/15.png) no-repeat; cursor:pointer;}
+
+#login_window .btn{text-align:left; padding:4px 0 10px 124px; position:relative;}
+
+#login_window .btn a{  font-size:14px; position:absolute; top:11px; left:244px; _left:124px;}
+#login_window .btn2{text-align:center; position:relative; height:59px;}
+#login_window .btn2 .icon{display:inline-block; width:50px; height:59px; background:url(/png/icon2.png) no-repeat 0 -300px;}
+
+#login_window .text .input1{ width:248px; height:24px; _height:20px; border:1px #BFBFBF solid; font-size:14px; padding: 0px 0 0 2px; _padding: 4px 0 0 2px;}
+#login_window .text .input2{ width:148px; height:24px; _height:20px; border:1px #BFBFBF solid; font-size:14px; padding: 0px 0 0 2px; _padding: 4px 0 0 2px;}
+#login_window .red .input1,#login_window .red .input2{border:1px #E30806 solid;}
+#login_window .text .l{ font-size:16px; display:inline-block; width:80px; height:24px; text-align:right; line-height:18px;}
+#login_window .text .s{ position:absolute; top:5px; left:124px; _left:84px; cursor:text; font-size:14px; color:#BFBFBF; padding:4px 0 0 4px;  width:250px; height:22px;}
+#login_window .text .code{background:url(/png/icon.png) no-repeat 0px 0px; width:85px; height:23px; cursor:pointer; display:inline-block; position:absolute; top:6px; left:280px; _left:246px; font-size:12px;}
+#login_window .text .code2{ background-position: 0 -23px; text-align:center; padding-top:3px; height:20px}
+#login_window .text .block{ display:block;}
+
+#login_window .yzm_msg{ display:none;width:234px; padding:8px; background:#F5F5F5; border:1px #ddd solid; line-height:18px; margin:2px 0 0 120px;}
+#login_window .yzm{ background:url(/png/icon.png) no-repeat -165px 9px; display:none;}
+#login_window .yzm .s{ width:150px;}
+#login_window .yzm .l{ cursor:pointer;}
+#login_window .msg_input{padding:0 0 0px 19px; background:url(/png/icon.png) no-repeat -196px -48px; color:#E30806; visibility:hidden; margin:0 0 0 120px;}
+#login_window .top_p{ margin-top:18px;}
+#yzm_help{background:url(/png/3.png) no-repeat 0px 0px; width:281px; height:67px; position:absolute; top:106px; left:35px; line-height:18px; padding:8px 8px 8px 10px; display:none;}
+
+
+.register{width:425px; height:42px; _height:38px; text-align:center; padding:28px 8px 8px 8px; _padding:24px 8px 8px 8px; font-size:16px; background:#FAFAFA; border:1px #DFDFDF solid; margin:-1px auto 0 auto;}
+.register .help{display:inline-block; background:url(/png/icon.png) no-repeat -200px -149px; padding-left:22px;}
+
+#login_window .block{display:block; visibility:inherit;}
+.forget_msg{padding:12px 0 12px 70px; line-height:20px;}
+
+
+
+
+#forget{width:950px; height:505px; padding-top:130px; background:url(/png/16.png) no-repeat; margin:0 auto;}
+

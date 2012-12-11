@@ -1,0 +1,884 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>演示</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+<h3 class="mha Hr">说明</h3>
+<h3 class="Hb mha">演示</h3>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">对账管理</a><span class="direct">&gt;</span></li>
+    <li>结算清单管理</li>
+  </ul>
+  <form action="#">
+    <div class="Dgw mb10">
+      <ul class="colunm">
+        <li class="mr30">
+          <select class="w300">
+            <option value="">结算状态筛选</option>
+          </select>
+        </li>
+        <li>
+          <label>结算日期：<em class="cg mh5">从</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-08-15" id="d1" name="startTime" realvalue="2010-08-15">
+          </label>
+          <span id="datefrom" class="mh5 datefrom"></span>
+          <label><em class="cg mh5">到</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-09-14" id="d2" name="endTime">
+          </label>
+          <span id="dateto" class="mh5 dateto"></span> </li>
+      </ul>
+    </div>
+    <div class="mb30">
+      <input type="button" value="查询" class="btn Borange fw7">
+      <input type="button" value="查询" class="btn Bwhite fw7">
+      <button class="btn Bwhite">查询</button>
+      <button class="btn Borange">查询</button>
+    </div>
+  </form>
+  <h3 class="Hr">查询结果</h3>
+  <p class="result mb10">当前查询结果：共有 <em class="cdr fw7"> 55 </em> 条记录，分 <em class="cdr fw7"> 6 </em> 页显示。 </p>
+  <table class="tab mb10">
+    <thead>
+      <tr>
+        <th>结算清单ID</th>
+        <th>创建时间</th>
+        <th>结算开始时间</th>
+        <th>结算结束时间</th>
+        <th>结算总额</th>
+        <th>结算状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="crb">20100825-01</td>
+        <td>2010-08-25 10:00</td>
+        <td>2010-08-26</td>
+        <td>2010-09-26</td>
+        <td class="cdr fw7">5,000.00</td>
+        <td>未确认</td>
+        <td class="brlg"><a href="#" class="cdr">删除清单</a></td>
+      </tr>
+      <tr>
+        <td class="crb">20100825-01</td>
+        <td>2010-08-25 10:00</td>
+        <td>2010-08-26</td>
+        <td>2010-09-26</td>
+        <td class="cdr fw7">5,000.00</td>
+        <td>已付款</td>
+        <td class="brlg"><a href="#" class="crb">查看详情</a></td>
+      </tr>
+      <tr>
+        <td class="crb">20100825-01</td>
+        <td>2010-08-25 10:00</td>
+        <td>2010-08-26</td>
+        <td>2010-09-26</td>
+        <td class="cdr fw7">5,000.00</td>
+        <td>未确认</td>
+        <td class="brlg"><a href="#" class="cdr fw7">删除清单</a></td>
+      </tr>
+      <tr>
+        <td class="crb">20100825-01</td>
+        <td>2010-08-25 10:00</td>
+        <td>2010-08-26</td>
+        <td>2010-09-26</td>
+        <td class="cdr fw7">5,000.00</td>
+        <td>对账完成</td>
+        <td class="brlg"><a href="#" class="crb fw7">确认付款</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page tar cdg"><span title="上一页" class="pageupoff"></span><span class="mh5 fw7">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">...</a><a onClick="gotoPage('2');" href="#" title="下一页" class="pagedownon"></a>共6页</div>
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">对账管理</a><span class="direct">&gt;</span></li>
+    <li><a href="#">售卡对账报表</a><span class="direct">&gt;</span></li>
+    <li>确认付款</li>
+  </ul>
+  <p class="mb15"><a href="#" class="crb fw7">&lt; 返回</a></p>
+  <h3 class="Hr">结算清单管理</h3>
+  <dl class="colunm c2T4D8 cdg mb30">
+    <dt>渠道名称：</dt>
+    <dd>中国邮政</dd>
+    <dt>结算开始日期：</dt>
+    <dd>2010-08-01</dd>
+    <dt>渠道代码：</dt>
+    <dd>1000001</dd>
+    <dt>结算开始日期：</dt>
+    <dd>2010-08-01</dd>
+    <dt class="mt20">结算清单ID：</dt>
+    <dd class="cdr fw7 mt20">20100825-01</dd>
+    <dt class="mt20">结算总额：</dt>
+    <dd class="mt20"><span class="cdr fw7 mr5">280,000.00</span>元</dd>
+  </dl>
+  <h3 class="Hs mb20">确认付款</h3>
+  <p class="cdr pl10 mb20">请填写凭证号和付款单据号，并确认已付款。</p>
+  <form action="#">
+    <dl class="colunm c1T4D9 mb20">
+      <dt>凭证号：</dt>
+      <dd>
+        <input type="text" class="Bgray h20 w200 pl5" />
+      </dd>
+      <dt>付款单据号：</dt>
+      <dd>
+        <input type="text" class="Bgray h20 w200 pl5" />
+      </dd>
+      <dt>操作：</dt>
+      <dd>
+        <input type="button" value="确认已付款" class="btn Borange">
+        <input type="button" value="取消" class="btn Bwhite">
+      </dd>
+    </dl>
+  </form>
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">对账管理</a><span class="direct">&gt;</span></li>
+    <li><a href="#">售卡对账报表</a><span class="direct">&gt;</span></li>
+    <li>上传发票</li>
+  </ul>
+  <p class="mb15"><a href="#" class="crb fw7">&lt; 返回</a></p>
+  <h3 class="Hr">结算清单管理</h3>
+  <dl class="colunm c2T4D8 cdg mb30">
+    <dt>渠道名称：</dt>
+    <dd>中国邮政</dd>
+    <dt>结算开始日期：</dt>
+    <dd>2010-08-01</dd>
+    <dt>渠道代码：</dt>
+    <dd>1000001</dd>
+    <dt>结算开始日期：</dt>
+    <dd>2010-08-01</dd>
+    <dt class="mt20">结算清单ID：</dt>
+    <dd class="cdr fw7 mt20">20100825-01</dd>
+    <dt class="mt20">结算总额：</dt>
+    <dd class="mt20"><span class="cdr fw7 mr5">280,000.00</span>元</dd>
+  </dl>
+  <h3 class="Hs mb20">上传发票</h3>
+  <p class="pl10 mb20">请正确的填写发票号后提交。</p>
+  <form action="#">
+    <dl class="colunm c1T4D9">
+      <dt>发票号：</dt>
+      <dd>
+        <input type="text" class="Bgray h20 w200 pl5" />
+      </dd>
+      <dt></dt>
+      <dd>
+        <input type="button" value="提交" class="btn Borange">
+        <input type="button" value="取消" class="btn Bwhite">
+      </dd>
+    </dl>
+  </form>
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">对账管理</a><span class="direct">&gt;</span></li>
+    <li><a href="#">售卡对账报表</a><span class="direct">&gt;</span></li>
+    <li>浏览清单详情</li>
+  </ul>
+  <dl class="colunm c3T4D8 mb20">
+    <dt>结算状态:</dt>
+    <dd><span class="Bdr ml10">已付款</span></dd>
+    <dt>处理状态:</dt>
+    <dd><span class="Bb ml10">已结算</span></dd>
+  </dl>
+  <h3 class="Hr">结算清单详情</h3>
+  <dl class="colunm c2T4D8 cdg mb20">
+    <dt>结算清单ID：</dt>
+    <dd>20100825-01</dd>
+    <dt>结算开始日期：</dt>
+    <dd>2010-08-01</dd>
+    <dt>渠道名称：</dt>
+    <dd>中国邮政</dd>
+    <dt>结算开始日期：</dt>
+    <dd>2010-08-01</dd>
+  </dl>
+  <table class="tab mb30">
+    <thead>
+      <tr>
+        <th>销售时间</th>
+        <th>邮乐订单号</th>
+        <th>售卡渠道</th>
+        <th>订单金额</th>
+        <th>不含税销售额</th>
+        <th>增值税</th>
+        <th>代理手续费</th>
+        <th>邮政发票号</th>
+        <th>应收帐款净额</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td colspan="9" class="brlg fw7 fz14 tar pr20">结算金额总计：<span class="cdr">5,700.00</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 class="Hs mb20">确认付款</h3>
+  <dl class="colunm c2T4D8 mb30">
+    <dt>结算确认时间：</dt>
+    <dd>2010-08-01</dd>
+    <dt>经办人员：</dt>
+    <dd>崔永斌</dd>
+  </dl>
+  <h3 class="Hs mb20">对账完成</h3>
+  <dl class="colunm c2T4D8 mb30">
+    <dt>邮政发票号：</dt>
+    <dd>FWY002</dd>
+    <dt>发票上传时间：</dt>
+    <dd>2010-08-01</dd>
+    <dt></dt>
+    <dd></dd>
+    <dt>经办人：</dt>
+    <dd>崔永斌</dd>
+  </dl>
+  <h3 class="Hs mb20">已付款</h3>
+  <dl class="colunm c2T4D8 mb30">
+    <dt>付款凭证号：</dt>
+    <dd>9/记-5</dd>
+    <dt>首款确认时间：</dt>
+    <dd>2010-08-01</dd>
+    <dt>付款单据号：</dt>
+    <dd>AA23456789</dd>
+    <dt>经办人：</dt>
+    <dd>崔永斌</dd>
+  </dl>
+  <input type="button" value="关闭窗口" class="btn Bwhite mlp45" />
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">对账管理</a><span class="direct">&gt;</span></li>
+    <li>售卡对账报表</li>
+  </ul>
+  <form action="#">
+    <div class="Dgw mb10">
+      <ul class="colunm mb10">
+        <li class="mr30">
+          <select>
+            <option value="">各级售卡渠道</option>
+          </select>
+          <select>
+            <option value="">全部结算状态</option>
+          </select>
+        </li>
+        <li>
+          <label>下单时间：<em class="cg mh5">从</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-08-15" id="d1" name="startTime" realvalue="2010-08-15">
+            <span id="datefrom" class="mh5 datefrom"></span> </label>
+          <label><em class="cg mh5">到</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-09-14" id="d2" name="endTime">
+            <span id="dateto" class="mh5 dateto"></span> </label>
+        </li>
+      </ul>
+      <ul class="colunm c2D15">
+        <li>
+          <label>凭证号：
+            <input type="text" class="Bgray h20 w200 pl5" />
+          </label>
+        </li>
+        <li>
+          <label>付款单据号：
+            <input type="text" class="Bgray h20 w200 pl5" />
+          </label>
+        </li>
+      </ul>
+    </div>
+    <input type="button" value="查询" class="btn Borange mb20" />
+  </form>
+  <h3 class="Hr">查询结果</h3>
+  <p class="result mb10">当前查询结果：共有 <em class="cdr fw7"> 55 </em> 条记录，分 <em class="cdr fw7"> 6 </em> 页显示。 </p>
+  <table class="tab mb30">
+    <thead>
+      <tr>
+        <th>销售时间</th>
+        <th>邮乐订单号</th>
+        <th>售卡渠道</th>
+        <th>订单金额</th>
+        <th>不含税销售额</th>
+        <th>结算状态</th>
+        <th>代理手续费</th>
+        <th>销售</th>
+        <th>邮政发票号</th>
+        <th>应收帐款净额</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>已结算</td>
+        <td>75.00</td>
+        <td>TG0002</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>已结算</td>
+        <td>75.00</td>
+        <td>TG0002</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>已结算</td>
+        <td>75.00</td>
+        <td>TG0002</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>未结算</td>
+        <td>75.00</td>
+        <td>TG0002</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page tar cdg mb10 pb10 bbg"><span title="上一页" class="pageupoff"></span><span class="mh5 fw7">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">...</a><a onClick="gotoPage('2');" href="#" title="下一页" class="pagedownon"></a>共6页</div>
+  <input type="button" value="将结果导出为Excel文件" class="btn Bwhite" />
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">对账管理</a><span class="direct">&gt;</span></li>
+    <li>新建结算清单</li>
+  </ul>
+  <form action="#">
+    <div class="Dgw mb10">
+      <ul class="colunm">
+        <li class="mr30">
+          <select>
+            <option value="">中国邮政</option>
+          </select>
+        </li>
+        <li>
+          <label>时间范围：<em class="cg mh5">从</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-08-15" id="d1" name="startTime" realvalue="2010-08-15">
+            <span id="datefrom" class="mh5 datefrom"></span> </label>
+          <label><em class="cg mh5">到</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-09-14" id="d2" name="endTime">
+            <span id="dateto" class="mh5 dateto"></span> </label>
+        </li>
+      </ul>
+    </div>
+    <input type="button" value="查询" class="btn fw7 Borange mb20" />
+  </form>
+  <h3 class="Hr">查询结果</h3>
+  <p class="result mb10">当前查询结果：共有 <em class="cdr fw7"> 55 </em> 条记录，分 <em class="cdr fw7"> 6 </em> 页显示。 </p>
+  <table class="tab mb10">
+    <thead>
+      <tr>
+        <th></th>
+        <th>销售时间</th>
+        <th>邮乐订单号</th>
+        <th>下单局</th>
+        <th>订单金额</th>
+        <th>不含税销售额</th>
+        <th>增值税</th>
+        <th>代理手续费</th>
+        <th>应收帐款净额</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><label>
+            <input type="checkbox" />
+          </label></td>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td><label>
+            <input type="checkbox" />
+          </label></td>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td><label>
+            <input type="checkbox" />
+          </label></td>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td><label>
+            <input type="checkbox" />
+          </label></td>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pl10 pb10 mb10 bbg">
+    <label>
+      <input type="checkbox" />
+      全选/全不选</label>
+  </div>
+  <input type="button" value="提交,预览结算清单" class="btn fw7 Borange" />
+  <input type="button" value="将结果导出为Excel文件" class="btn Bwhite" />
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">对账管理</a><span class="direct">&gt;</span></li>
+    <li><a href="#">售卡对账报表</a><span class="direct">&gt;</span></li>
+    <li>确认付款</li>
+  </ul>
+  <p class="mb15"><a href="#" class="crb fw7">&lt; 返回</a></p>
+  <h3 class="Hr">结算清单管理</h3>
+  <dl class="colunm c2T4D8 cdg mb30">
+    <dt>渠道名称：</dt>
+    <dd>中国邮政</dd>
+    <dt>结算开始日期：</dt>
+    <dd>2010-08-01</dd>
+    <dt></dt>
+    <dd></dd>
+    <dt>结算开始日期：</dt>
+    <dd>2010-08-01</dd>
+  </dl>
+  <table class="tab mb30">
+    <thead>
+      <tr>
+        <th>销售时间</th>
+        <th>邮乐订单号</th>
+        <th>下单局</th>
+        <th>订单金额</th>
+        <th>不含税销售额</th>
+        <th>增值税</th>
+        <th>代理手续费</th>
+        <th>应收帐款净额</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>217.95</td>
+        <td>75.00</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="bbg mb10"></div>
+  <p class="fz14 mb10">合计：<span class="cdr fw7">280,000.00</span>元</p>
+  <input type="button" value="确定生成并提交清单" class="btn fw7 Borange" />
+  <input type="button" value="取消" class="btn Bwhite" />
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">对账管理</a><span class="direct">&gt;</span></li>
+    <li>余额统计表</li>
+  </ul>
+  <form action="#">
+    <div class="Dgw mb10">
+      <ul class="colunm">
+        <li class="mr30">
+          <select>
+            <option value="">各级售卡渠道</option>
+          </select>
+        </li>
+        <li>
+          <label>截止日期：<em class="cg mh5">从</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-08-15" id="d1" name="startTime" realvalue="2010-08-15">
+            <span id="datefrom" class="mh5 datefrom"></span> </label>
+          <label><em class="cg mh5">到</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-09-14" id="d2" name="endTime">
+            <span id="dateto" class="mh5 dateto"></span> </label>
+        </li>
+      </ul>
+    </div>
+    <input type="button" value="查询" class="btn Borange mb20" />
+  </form>
+  <h3 class="Hr">查询结果</h3>
+  <p class="result mb10">当前查询结果：共有 <em class="cdr fw7"> 55 </em> 条记录，分 <em class="cdr fw7"> 6 </em> 页显示。 </p>
+  <table class="tab mb30">
+    <thead>
+      <tr>
+        <th>售卡渠道</th>
+        <th>销售金额</th>
+        <th>消费总额</th>
+        <th>邮政消费端</th>
+        <th>邮乐消费端</th>
+        <th>转出金额</th>
+        <th>转入金额</th>
+        <th>手续费</th>
+        <th>截至余额</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>上海邮乐</td>
+        <td>1,500.00</td>
+        <td>200.00</td>
+        <td>0.00</td>
+        <td>200.00</td>
+        <td>0.00</td>
+        <td>0.00</td>
+        <td>0.00</td>
+        <td class="brlg">1,300.00</td>
+      </tr>
+      <tr>
+        <td>上海邮乐</td>
+        <td>1,500.00</td>
+        <td>200.00</td>
+        <td>0.00</td>
+        <td>200.00</td>
+        <td>0.00</td>
+        <td>0.00</td>
+        <td>0.00</td>
+        <td class="brlg">1,300.00</td>
+      </tr>
+      <tr>
+        <td>上海邮乐</td>
+        <td>1,500.00</td>
+        <td>200.00</td>
+        <td>0.00</td>
+        <td>200.00</td>
+        <td>0.00</td>
+        <td>0.00</td>
+        <td>0.00</td>
+        <td class="brlg">1,300.00</td>
+      </tr>
+      <tr>
+        <td>上海邮乐</td>
+        <td>1,500.00</td>
+        <td>200.00</td>
+        <td>0.00</td>
+        <td>200.00</td>
+        <td>0.00</td>
+        <td>0.00</td>
+        <td>0.00</td>
+        <td class="brlg">1,300.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page tar cdg mb10 pb10 bbg"><span title="上一页" class="pageupoff"></span><span class="mh5 fw7">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">...</a><a onClick="gotoPage('2');" href="#" title="下一页" class="pagedownon"></a>共6页</div>
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">发票管理</a><span class="direct">&gt;</span></li>
+    <li>批量上传发票</li>
+  </ul>
+  <h3 class="Hr mb30">批量上传发票</h3>
+  <p class="pl10 mb10">请正确的填写发票号后提交。</p>
+  <form action="#">
+    <input type="file" class="db mb10 ml10" />
+    <input type="button" value="确认上传" class="btn Borange fw7 ml10">
+  </form>
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">发票管理</a><span class="direct">&gt;</span></li>
+    <li>未开票的订单</li>
+  </ul>
+  <form action="#">
+    <div class="Dgw mb10">
+      <ul class="colunm mb10">
+        <li class="mr30">
+          <select>
+            <option value="">中国邮政</option>
+          </select>
+        </li>
+        <li class="mr30">
+          <label>时间范围：<em class="cg mh5">从</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-08-15" id="d1" name="startTime" realvalue="2010-08-15">
+            <span id="datefrom" class="mh5 datefrom"></span> </label>
+          <label><em class="cg mh5">到</em>
+            <input type="text" readonly="readonly" class="Bgray w90 h20 tac" value="2010-09-14" id="d2" name="endTime">
+            <span id="dateto" class="mh5 dateto"></span> </label>
+        </li>
+        <li>定单金额：
+          <input type="text" class="Bgray w72 h20 tar mh5 pr5" />
+          -
+          <input type="text" class="Bgray w72 h20 tar mh5 pr5" />
+        </li>
+      </ul>
+      <ul class="colunm c2D15">
+        <li>
+          <label>购买人姓名：
+            <input type="text" class="Bgray w200 h20 ml10" />
+          </label>
+        </li>
+        <li>
+          <label>收货人姓名：
+            <input type="text" class="Bgray w200 h20 ml10" />
+          </label>
+        </li>
+        <li>
+          <label>购买人电话：
+            <input type="text" class="Bgray w200 h20 ml10" />
+          </label>
+        </li>
+        <li>
+          <label>邮乐订单号：
+            <input type="text" class="Bgray w200 h20 ml10" />
+          </label>
+        </li>
+      </ul>
+    </div>
+    <input type="button" value="查询" class="btn Borange fw7 mb20" />
+  </form>
+  <h3 class="Hr">查询结果</h3>
+  <p class="result mb10">当前查询结果：共有 <em class="cdr fw7"> 55 </em> 条记录，分 <em class="cdr fw7"> 6 </em> 页显示。 </p>
+  <table class="tab mb10">
+    <thead>
+      <tr>
+        <th>销售时间</th>
+        <th>邮乐订单号</th>
+        <th>售卡渠道</th>
+        <th>订单金额</th>
+        <th>不含税销售额</th>
+        <th>结算状态</th>
+        <th>代理手续费</th>
+        <th>销售</th>
+        <th>邮政发票号</th>
+        <th>应收帐款净额</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>已结算</td>
+        <td>75.00</td>
+        <td>TG0002</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>已结算</td>
+        <td>75.00</td>
+        <td>TG0002</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>已结算</td>
+        <td>75.00</td>
+        <td>TG0002</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+      <tr>
+        <td>20100825-01</td>
+        <td class="crb">12345678987654321000</td>
+        <td>安阳市邮政局</td>
+        <td>1,500.00</td>
+        <td>1,282.05</td>
+        <td>未结算</td>
+        <td>75.00</td>
+        <td>TG0002</td>
+        <td>FWY002</td>
+        <td class="brlg cdr fw7">1,425.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page tar cdg mb10 pb10 bbg"><span title="上一页" class="pageupoff"></span><span class="mh5 fw7">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">...</a><a onClick="gotoPage('2');" href="#" title="下一页" class="pagedownon"></a>共6页</div>
+  <input type="button" value="将结果导出为Excel文件" class="btn Bwhite mb10" />
+  <p class="cdg">将订单导出并填写好发票号后可实现批量发票上传。</p>
+</div>
+<div class="mainInner">
+  <ul class="crumbs">
+    <li><a href="#" class="score-0">邮乐卡后台管理系统</a><span class="direct">&gt;</span></li>
+    <li><a href="#">发票管理</a><span class="direct">&gt;</span></li>
+    <li><a href="#">未开票的订单</a><span class="direct">&gt;</span></li>
+    <li>发票上传</li>
+  </ul>
+  <h3 class="Hr mb10">订单发票上传</h3>
+  <dl class="colunm c3T4D8 mb20">
+    <dt>订单编号：</dt>
+    <dd>20100503151461354</dd>
+    <dt>下单时间：</dt>
+    <dd>2010-05-03 15:14</dd>
+    <dt>订单金额：</dt>
+    <dd><span class="cdr fw7">500.00</span>元</dd>
+  </dl>
+  <h3 class="Hs bbg">开票信息</h3>
+  <dl class="colunm c1T5D24 mb30 cg">
+    <dt class="tar">收货人姓名：</dt>
+    <dd>张三</dd>
+    <dt class="tar">收货人邮编：</dt>
+    <dd>200126</dd>
+    <dt class="tar">收货人地址：</dt>
+    <dd>87987654987651687616876487</dd>
+    <dt class="tar">收货人电话：</dt>
+    <dd>010-11111111</dd>
+    <dt class="tar">收货人手机：</dt>
+    <dd>13888888888</dd>
+    <dt class="bblg btlg tar">是否需要发票：</dt>
+    <dd class="bblg btlg">需要</dd>
+    <dt class="tar">发票类型：</dt>
+    <dd>普通增值税</dd>
+    <dt class="tar">发票寄递地址：</dt>
+    <dd>巴拉巴拉巴拉巴拉巴拉巴拉</dd>
+    <dt class="tar">发票寄递邮编：</dt>
+    <dd>200000</dd>
+    <dt class="tar">发票抬头：</dt>
+    <dd>单位</dd>
+    <dt class="tar">备注：</dt>
+    <dd>巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉</dd>
+  </dl>
+  <h3 class="Hs bbg">发票上传</h3>
+  <form action="#">
+    <dl class="colunm c1T4D9">
+      <dt>发票号：</dt>
+      <dd>
+        <input type="text" class="Bgray h20 w200 pl5" />
+      </dd>
+      <dt></dt>
+      <dd>
+        <input type="button" value="确定提交" class="btn Borange fw7">
+        <input type="button" value="取消" class="btn Bwhite">
+      </dd>
+    </dl>
+  </form>
+</div>
+</body>
+</html>

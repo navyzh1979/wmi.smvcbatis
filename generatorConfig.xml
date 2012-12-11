@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<context id="context1">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost/wmicrm_venus" userId="root"
+			password="" />
+		<javaModelGenerator targetPackage="org.wmichina.mybatis.model"
+			targetProject="mwc.sibatis">
+			<property name="enableSubPackages" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="org.wmichina.mybatis.sqlmap"
+			targetProject="mwc.sibatis">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<javaClientGenerator targetPackage="org.wmichina.mybatis.client"
+			targetProject="mwc.sibatis" type="ANNOTATEDMAPPER" />
+<!-- 		<table schema="wmicrm_venus" tableName="sys_region" >
+		    <columnOverride column="region_level" javaType="Integer"></columnOverride>
+		    <columnOverride column="is_valid" javaType="Integer"></columnOverride>
+		  </table> 
+		
+        <table schema="wmicrm_venus" tableName="sys_constant" >
+          <columnOverride column="constant_level" javaType="Integer"></columnOverride>
+          <columnOverride column="is_predefined" javaType="Integer"></columnOverride>
+          <columnOverride column="is_valid" javaType="Integer"></columnOverride>
+        </table>
+        <table schema="wmicrm_venus" tableName="sys_user" >
+          <columnOverride column="user_sex" javaType="Integer"></columnOverride>
+          <columnOverride column="audit_status" javaType="Integer"></columnOverride>
+          <columnOverride column="is_valid" javaType="Integer"></columnOverride>
+        </table>
+-->       
+        <table schema="wmicrm_venus" tableName="student" >
+          <columnOverride column="sex" javaType="Integer"></columnOverride>
+          <columnOverride column="is_valid" javaType="Integer"></columnOverride>
+          <columnOverride column="student_type" javaType="Integer"></columnOverride>
+          <columnOverride column="student_level" javaType="Integer"></columnOverride>
+          <columnOverride column="member_level" javaType="Integer"></columnOverride>
+        </table>
+	</context>
+</generatorConfiguration>

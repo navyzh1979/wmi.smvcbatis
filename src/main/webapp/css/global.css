@@ -1,0 +1,159 @@
+html {
+	background: #fff;
+	height: 100%
+}
+
+body,div,td,th {
+	color: #666;
+	font-family: Tahoma;
+	font-size: 12px;
+}
+
+del {
+	font-family: '宋体' !important;
+}
+
+body {
+	margin: 0;
+	background: none !important;
+	padding-bottom: 20px;
+}
+
+ul {
+	padding: 0;
+	margin: 0
+}
+
+li {
+	list-style: none;
+}
+
+img,fieldset {
+	border: none;
+}
+
+fieldset {
+	border: 0;
+}
+
+a {
+	color: #666;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+ul {
+	margin: 0;
+	padding: 0
+}
+
+a.blue {
+	color: #06c
+}
+
+del {
+	color: #999;
+	text-decoration: line-through
+}
+
+.mtop10 {
+	margin-top: 10px
+}
+
+.clear:after,.clrfix:after {
+	clear: both;
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+#msg_error {
+	display: none;
+}
+
+#top {
+	width: 100%;
+	height: 87px;
+	background: url(/png/1.png) repeat-x;
+}
+
+#top .logo_info {
+	width: 950px;
+	height: 87px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#top .logo_info .logo {
+	width: 262px;
+	height: 86px;
+	background: url(/png/logo.png) no-repeat;
+	display: block;
+}
+
+#top .logo_info div {
+	position: absolute;
+	top: 36px;
+	left: 450px;
+	text-align: right;
+	width: 500px;
+	height: 20px;
+	color: #FFFFFF;
+	font-family: '宋体', '微软雅黑';
+	font-size: 12px;
+}
+
+#top .logo_info div a {
+	color: #FFFFFF;
+}
+
+#top .logo_info div .xinming {
+	display: inline-block;
+	background: url(/png/icon2.png) no-repeat 0px 1px;
+	_background-position: 0px 0px;
+	padding-left: 15px;
+}
+
+#top .logo_info div .geren {
+	display: inline-block;
+	background: url(/png/icon2.png) no-repeat 0px -49px;
+	_background-position: 0px -49px;
+	padding-left: 15px;
+}
+
+#top .logo_info div .help {
+	display: inline-block;
+	background: url(/png/icon2.png) no-repeat 0px -99px;
+	_background-position: 0px -99px;
+	padding-left: 12px;
+}
+
+#top .logo_info div .quit {
+	color: #FE7000
+}
+
+#foot {
+	width: 950px;
+	margin: 0 auto;
+	padding: 10px 0;
+	_ padding: 20px 0;
+	text-align: center;
+	color: #A8A8A8;
+}
+
+#foot p {
+	padding: 0px 0;
+}
+
+.texthidden {
+	width: 260px; /*宽度，超过即会溢出*/
+	line-height: 25px; /*设置行间距*/
+	text-overflow: ellipsis; /*当文本溢出时显示…此时还必须定义：
+强制文本在一行内显示（white-space:nowrap）及溢出内容为隐藏（overflow:hidden）*/
+	white-space: nowrap; /*表示文本不会换行*/
+	overflow: hidden; /*表示溢出的内容会被隐藏*/
+}
