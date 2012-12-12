@@ -106,7 +106,6 @@ public class XSLReader {
 					Date date = cell.getDateCellValue();
 					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 					cellvalue = sdf.format(date);
-
 				}
 				// 如果是纯数字
 				else {

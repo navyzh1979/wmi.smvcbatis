@@ -27,8 +27,10 @@ public class SysCache{
 	public final Map<Integer, SysRole> ROLES_BY_ID = new HashMap<Integer, SysRole>();
 	//地区相关
 	public final Map<String, SysRegion> ALL_REGIONS = new HashMap<String, SysRegion>();
-	public final Map<String, SysRegion> REGION_NATION = new HashMap<String, SysRegion>();
-	public final Map<String, SysRegion> REGION_PROVINCE = new HashMap<String, SysRegion>();
+	public final Map<String, SysRegion> REGION_NATION_BYCODE = new HashMap<String, SysRegion>();
+	public final Map<String, SysRegion> REGION_NATION_BYNAME = new HashMap<String, SysRegion>();
+	public final Map<String, SysRegion> REGION_PROVINCE_BYCODE = new HashMap<String, SysRegion>();
+	public final Map<String, SysRegion> REGION_PROVINCE_BYNAME = new HashMap<String, SysRegion>();
 	public final Map<String, List<SysRegion>> REGION_PROVINCE_CITY = new HashMap<String, List<SysRegion>>();
 	public final Map<String, SysRegion> REGION_CITY = new HashMap<String, SysRegion>();
 	public final Map<String, List<SysRegion>> REGION_CITY_COUNTY = new HashMap<String, List<SysRegion>>();
@@ -99,7 +101,8 @@ public class SysCache{
 		for(SysRegion region : regions){
 			ALL_REGIONS.put(region.getRegionCode(), region);
 			if(region.getRegionLevel() == EntityConstants.REGION_LEVEL_PROVINCE){
-				REGION_PROVINCE.put(region.getRegionCode(), region);
+				REGION_PROVINCE_BYCODE.put(region.getRegionCode(), region);
+				REGION_PROVINCE_BYNAME.put(region.getRegionName(), region);
 			}else if(region.getRegionLevel() == EntityConstants.REGION_LEVEL_CITY){
 				REGION_CITY.put(region.getRegionCode(), region);
 				//
@@ -115,15 +118,16 @@ public class SysCache{
 				counties.add(region);
 				REGION_CITY_COUNTY.put(region.getParentCode(), counties);
 			}else if(region.getRegionLevel() == EntityConstants.REGION_LEVEL_NATION){
-				REGION_NATION.put(region.getRegionCode(), region);
+				REGION_NATION_BYCODE.put(region.getRegionCode(), region);
+				REGION_NATION_BYNAME.put(region.getRegionName(), region);
 			}else {
 				System.out.println(" unkow regionLevel: " + region.getRegionLevel() +", region:" + new JSONObject(region).toString());
 			}
 		}
 		System.out.println(" Finished filling various types of region maps ...... " );
 		System.out.println(" ALL_REGIONS's size : " + ALL_REGIONS.size() );
-		System.out.println(" REGION_NATION's size : " + REGION_NATION.size() );
-		System.out.println(" REGION_PROVINCE's  size : " + REGION_PROVINCE.size() );
+		System.out.println(" REGION_NATION's size : " + REGION_NATION_BYCODE.size() );
+		System.out.println(" REGION_PROVINCE's  size : " + REGION_PROVINCE_BYNAME.size() );
 		System.out.println(" REGION_PROVINCE_CITY's size : " + REGION_PROVINCE_CITY.size() );
 		System.out.println(" REGION_CITY's size : " + REGION_CITY.size() );
 		System.out.println(" REGION_CITY_COUNTY's size : " + REGION_CITY_COUNTY.size() );

@@ -29,7 +29,7 @@ public class DwrDefaultController {
 		//
 		//List<SysRegion> regions = this.sysDefaultService.findRegionsByParentCode(regionCode);
 		List<SysRegion> regions = new ArrayList<SysRegion>();
-		regions.addAll(SysCache.getInstance().REGION_PROVINCE.values());
+		regions.addAll(SysCache.getInstance().REGION_PROVINCE_BYCODE.values());
 		
 		StringBuilder builder = new StringBuilder();
 		if(childLevel==EntityConstants.REGION_LEVEL_PROVINCE){
