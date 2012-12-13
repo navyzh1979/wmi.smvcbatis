@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.wmichina.crm.helper.SysCache;
 import org.wmichina.crm.service.SysDefaultService;
+import org.wmichina.crm.service.SysJobTagNoticeService;
 import org.wmichina.crm.service.SysRoleUserService;
 
 @Repository
@@ -21,11 +22,13 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 	private SysRoleUserService sysRoleUserService;
 	@Resource(name = "sysDefaultService")
 	private SysDefaultService sysDefaultService;
+	@Resource(name = "sysJobTagNoticeService")
+	private SysJobTagNoticeService sysJobTagNoticeService;
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		SysCache.getInstance().initCache(sysRoleUserService, sysDefaultService);
+		SysCache.getInstance().initCache(sysRoleUserService, sysDefaultService, sysJobTagNoticeService);
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
