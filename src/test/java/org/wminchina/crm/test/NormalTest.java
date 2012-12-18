@@ -3,7 +3,9 @@ package org.wminchina.crm.test;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.wmichina.crm.entity.SysRight;
@@ -13,6 +15,24 @@ public class NormalTest {
 	public void testAsd(){
 		Integer[] ids = {1,2,3};
 		System.out.println(Arrays.toString(ids).replace('[', '(').replace(']', ')'));
+
+  	Map<Integer, String> amap = new HashMap<Integer, String>();
+  	amap.put(1, "1");
+  	amap.put(2, "2");
+  	amap.put(3, "3");
+  	amap.put(4, "4");
+  	for(Map.Entry<Integer, String> entry : amap.entrySet()){
+  		System.out.println(entry.getKey() + ":" + entry.getValue());
+  	}
+  	
+  	String pattern = "^[a-zA-Z0-9_]+[@][a-zA-Z0-9]+[\\.][a-zA-Z0-9]{2,4}$";
+  	
+  	System.out.println("abc@abc.com".matches(pattern));
+  	System.out.println("abc@abccom".matches(pattern));
+  	System.out.println("abcabc.com".matches(pattern));
+  	System.out.println("abc@ab.ccom".matches(pattern));
+  	System.out.println("abc@abcc.om".matches(pattern));
+  	System.out.println("abc@a.bccom".matches(pattern));
 	}
 	@Test
 	public void testMath() {

@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -35,9 +36,11 @@ public interface StudentLogAssignMapper {
         "#{jobDeadline,jdbcType=DATE}, #{assignedTo,jdbcType=VARCHAR}, ",
         "#{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=VARCHAR})"
     })
+    @Options(useGeneratedKeys=true,keyProperty="assignId")
     int insert(StudentLogAssign record);
 
     @InsertProvider(type=StudentLogAssignSqlProvider.class, method="insertSelective")
+    @Options(useGeneratedKeys=true,keyProperty="assignId")
     int insertSelective(StudentLogAssign record);
 
     @SelectProvider(type=StudentLogAssignSqlProvider.class, method="selectByExample")

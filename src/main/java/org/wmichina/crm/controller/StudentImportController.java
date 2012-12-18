@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -26,7 +25,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
+import org.wmichina.crm.entity.BizCourse;
+import org.wmichina.crm.entity.BizMaterial;
 import org.wmichina.crm.entity.Student;
+import org.wmichina.crm.entity.StudentInfoMarketing;
 import org.wmichina.crm.entity.StudentLogAssign;
 import org.wmichina.crm.entity.SysConstant;
 import org.wmichina.crm.entity.SysDailyJob;
@@ -38,6 +40,7 @@ import org.wmichina.crm.helper.XLSField;
 import org.wmichina.crm.helper.XLSTemplateBuilder;
 import org.wmichina.crm.helper.XLSTemplateValidator;
 import org.wmichina.crm.helper.XSLReader;
+import org.wmichina.crm.service.BizCourseMaterialService;
 import org.wmichina.crm.service.StudentService;
 
 @Controller
@@ -46,6 +49,8 @@ public class StudentImportController {
 
 	@Resource(name = "studentService")
 	private StudentService studentService;
+	@Resource(name = "bizCourseMaterialService")
+	private BizCourseMaterialService bizCourseMaterialService;
 
 	@RequestMapping(value = "to_stlist_import")
 	public ModelAndView toImport() {
@@ -63,7 +68,7 @@ public class StudentImportController {
 		String fileContentType = uploadFile.getContentType();
 		System.out.println(" Upload file " + originalFileName + "'s fileType is " + fileContentType);
 		//
-		if (!XLSTemplateBuilder.XLS_FILE_TYPE.equals(fileContentType)) {
+		if (!XLSTemplateValidator.XLS_FILE_TYPE.equals(fileContentType)) {
 			System.out.println(" Upload fileType must be xls or xlsx. ");
 			map.put("errorMsg", "上传文件类型不是excel文件，请重新选择文件。");
 		} else {
@@ -118,9 +123,10 @@ public class StudentImportController {
 						List<String> rowContent = row.getValue();
 						Student studentInfo = new Student();
 						StudentLogAssign assignInfo = new StudentLogAssign();
+						StudentInfoMarketing infoMarketing = new StudentInfoMarketing();
 						StringBuilder wrongInfoDesc = new StringBuilder();
 						if (this.analysisRow(titleFields, rowContent, xlsReader.getColumnCount(), wrongInfoDesc, studentInfo,
-								assignInfo)) {
+								assignInfo, infoMarketing)) {
 							System.out.println(" Valid Row[" + rowNo + "] - " + Arrays.toString(rowContent.toArray()) + ".");
 							validRows.put(rowNo, rowContent);
 							insertingData.put(studentInfo, assignInfo);
@@ -181,7 +187,7 @@ public class StudentImportController {
 	 * @param assignInfo
 	 */
 	private boolean analysisRow(List<String> titleFields, List<String> rowContent, int columnCount,
-			StringBuilder wrongInfoDesc, Student studentInfo, StudentLogAssign assignInfo) {
+			StringBuilder wrongInfoDesc, Student studentInfo, StudentLogAssign assignInfo, StudentInfoMarketing infoMarketing) {
 		boolean isContentValid = true;
 		boolean isEmptyMobile = false;
 		boolean isEmptyEmail = false;
@@ -193,6 +199,7 @@ public class StudentImportController {
 		SysConstant assignDepart = null;
 		SysUser assignUser = null;
 		SysDailyJob assignJob = null;
+		Integer intendType = null;
 
 		// Start to analysis every cell in row.
 		for (int i = 0; i < columnCount; i++) {
@@ -310,8 +317,7 @@ public class StudentImportController {
 				if (StringUtils.isNotBlank(cellContent)) {
 					Date birthDay = null;
 					try {
-						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-						birthDay = sdf.parse(cellContent);
+						birthDay = XLSTemplateValidator.DATE_PARRTERN_YMD.parse(cellContent);
 					} catch (java.text.ParseException e) {
 						e.printStackTrace();
 						birthDay = null;
@@ -726,6 +732,73 @@ public class StudentImportController {
 						break;
 					} else {
 						studentInfo.setRemark(cellContent);
+					}
+				}
+				break;
+			}
+			case "intend_type": {
+				if (StringUtils.isNotBlank(cellContent)) {
+					if (cellContent.equals("资料")) {
+						intendType = EntityConstants.LEARNING_COURSE;
+						infoMarketing.setIntendType(intendType);
+					} else if (cellContent.equals("课程")) {
+						intendType = EntityConstants.LEARNING_MATERIAL;
+						infoMarketing.setIntendType(intendType);
+					} else {
+						wrongInfoDesc.append(xlsField.getFieldName()).append("[").append(cellContent).append("]")
+								.append("错误的意向类型,应为:资料或者课程.|");
+						isContentValid = false;
+					}
+				}
+				break;
+			}
+			case "intend_course": {
+				if (StringUtils.isNotBlank(cellContent)) {
+					if (intendType == null) {
+						wrongInfoDesc.append(xlsField.getFieldName()).append("[").append(cellContent).append("]")
+								.append("请填写正确的意向类型,应为:资料或者课程.|");
+						isContentValid = false;
+					} else if (intendType == EntityConstants.LEARNING_COURSE) {
+						BizCourse course = this.bizCourseMaterialService.selectCourseByName(cellContent);
+						if (course == null) {
+							wrongInfoDesc.append(xlsField.getFieldName()).append("[").append(cellContent).append("]")
+									.append("此课程不存在,请确认.|");
+							isContentValid = false;
+						} else {
+							infoMarketing.setIntendCourse(course.getCourseCode());
+						}
+					} else if (intendType == EntityConstants.LEARNING_MATERIAL) {
+						BizMaterial material = this.bizCourseMaterialService.selectMaterialByName(cellContent);
+						if (material == null) {
+							wrongInfoDesc.append(xlsField.getFieldName()).append("[").append(cellContent).append("]")
+									.append("此资料不存在,请确认.|");
+							isContentValid = false;
+						} else {
+							infoMarketing.setIntendCourse(material.getMaterialCode());
+						}
+					} else {
+						wrongInfoDesc.append(xlsField.getFieldName()).append("[").append(cellContent).append("]")
+								.append("错误的意向类型(" + intendType + "),应为:资料或者课程.|");
+						isContentValid = false;
+					}
+				}
+				break;
+			}
+			case "exam_time": {
+				if (StringUtils.isNotBlank(cellContent)) {
+					Date examDate = null;
+					try {
+						examDate = XLSTemplateValidator.DATE_PARRTERN_YM.parse(cellContent);
+					} catch (java.text.ParseException e) {
+						e.printStackTrace();
+						examDate = null;
+					}
+					if (examDate == null) {
+						wrongInfoDesc.append(xlsField.getFieldName()).append("[").append(cellContent).append("]")
+								.append("考试时间格式错误，应为2012-12.|");
+						isContentValid = false;
+					} else {
+						infoMarketing.setExamDate(cellContent);
 					}
 				}
 				break;

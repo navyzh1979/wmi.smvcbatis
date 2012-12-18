@@ -1,7 +1,5 @@
 package org.wminchina.crm.test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -219,22 +217,5 @@ public class ExcelReader {
             System.out.println("未找到指定路径的文件!");
             e.printStackTrace();
         }*/
-    	Map<Integer, String> amap = new HashMap<Integer, String>();
-    	amap.put(1, "1");
-    	amap.put(2, "2");
-    	amap.put(3, "3");
-    	amap.put(4, "4");
-    	for(Map.Entry<Integer, String> entry : amap.entrySet()){
-    		System.out.println(entry.getKey() + ":" + entry.getValue());
-    	}
-    	
-    	String pattern = "^[a-zA-Z0-9_]+[@][a-zA-Z0-9]+[\\.][a-zA-Z0-9]{2,4}$";
-    	
-    	System.out.println("abc@abc.com".matches(pattern));
-    	System.out.println("abc@abccom".matches(pattern));
-    	System.out.println("abcabc.com".matches(pattern));
-    	System.out.println("abc@ab.ccom".matches(pattern));
-    	System.out.println("abc@abcc.om".matches(pattern));
-    	System.out.println("abc@a.bccom".matches(pattern));
     }
 }

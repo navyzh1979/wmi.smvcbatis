@@ -1,27 +1,21 @@
 package org.wmichina.crm.helper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.poi.hssf.usermodel.HSSFFont;
-import org.apache.poi.hssf.util.HSSFColor;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.CreationHelper;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.ss.usermodel.Workbook;
-
 public class XLSTemplateValidator {
 	public static final String EMAIL_PATTERN = "^[a-zA-Z0-9_]+[@][a-zA-Z0-9]+[\\.][a-zA-Z0-9]{2,4}$";
 	public static final String MOBILE_PATTERN = "^((13[0-9])|(15[^4,\\D])|(18[0,5-9])|999)\\d{8}$";
 	
+	public static final SimpleDateFormat DATE_PARRTERN_YM = new SimpleDateFormat("yyyy-MM");
+	public static final SimpleDateFormat DATE_PARRTERN_YMD = new SimpleDateFormat("yyyy-MM-dd");
+	
 	public static final String XLS_FILE_TYPE="application/vnd.ms-excel";
 	public static final String XLSX_FILE_TYPE="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 	
-	public static final String TEMPLATE_ROOTDIR="/data/cache/template/";
-	public static final String TEMPLATE_UPLOADDIR="/data/cache/upload/";
 	/**
 	 * 校验市场部学员信息导入标题栏
 	 * @return
@@ -77,6 +71,9 @@ public class XLSTemplateValidator {
 		STUDENT_FIELDS_USING_DBKEY.put("edu_address",new XLSField("学校地址","edu_address","String",20,"",false));
 		STUDENT_FIELDS_USING_DBKEY.put("edu_postcode",new XLSField("邮编","edu_postcode","String",8,"",false));
 		STUDENT_FIELDS_USING_DBKEY.put("remark",new XLSField("备注","remark","String",20,"",false));
+		STUDENT_FIELDS_USING_DBKEY.put("intend_type",new XLSField("意向类型","intend_type","String",10,"",false));
+		STUDENT_FIELDS_USING_DBKEY.put("intend_course",new XLSField("意向课程资料","intend_course","String",20,"",false));
+		STUDENT_FIELDS_USING_DBKEY.put("exam_time",new XLSField("考试时间","exam_time","String",10,"",false));
 		STUDENT_FIELDS_USING_DBKEY.put("assigned_depart",new XLSField("被分配部门","assigned_depart","String",10,"",false));
 		STUDENT_FIELDS_USING_DBKEY.put("assigned_user",new XLSField("被分配员工","assigned_user","String",10,"",false));
 		STUDENT_FIELDS_USING_DBKEY.put("assigned_job",new XLSField("被分配工作","assigned_job","String",10,"",false));
@@ -114,6 +111,9 @@ public class XLSTemplateValidator {
 		STUDENT_FIELDS_USING_XLSKEY.put("学校地址",new XLSField("学校地址","edu_address","String",20,"",false));
 		STUDENT_FIELDS_USING_XLSKEY.put("邮编",new XLSField("邮编","edu_postcode","String",8,"",false));
 		STUDENT_FIELDS_USING_XLSKEY.put("备注",new XLSField("备注","remark","String",20,"",false));
+		STUDENT_FIELDS_USING_XLSKEY.put("意向类型",new XLSField("意向类型","intend_type","String",10,"",false));
+		STUDENT_FIELDS_USING_XLSKEY.put("意向课程资料",new XLSField("意向课程资料","intend_course","String",20,"",false));
+		STUDENT_FIELDS_USING_XLSKEY.put("考试时间",new XLSField("考试时间","exam_time","String",10,"",false));
 		STUDENT_FIELDS_USING_XLSKEY.put("被分配部门",new XLSField("被分配部门","assigned_depart","String",10,"",false));
 		STUDENT_FIELDS_USING_XLSKEY.put("被分配员工",new XLSField("被分配员工","assigned_user","String",10,"",false));
 		STUDENT_FIELDS_USING_XLSKEY.put("被分配工作",new XLSField("被分配工作","assigned_job","String",10,"",false));
@@ -151,6 +151,9 @@ public class XLSTemplateValidator {
 		STUDENT_FIELDS_LIST.add(new XLSField("学校地址","edu_address","String",20,"",false));
 		STUDENT_FIELDS_LIST.add(new XLSField("邮编","edu_postcode","String",8,"",false));
 		STUDENT_FIELDS_LIST.add(new XLSField("备注","remark","String",20,"",false));
+		STUDENT_FIELDS_LIST.add(new XLSField("意向类型","intend_type","String",10,"",false));
+		STUDENT_FIELDS_LIST.add(new XLSField("意向课程资料","intend_course","String",20,"",false));
+		STUDENT_FIELDS_LIST.add(new XLSField("考试时间","exam_time","String",10,"",false));
 		STUDENT_FIELDS_LIST.add(new XLSField("被分配部门","assigned_depart","String",10,"",false));
 		STUDENT_FIELDS_LIST.add(new XLSField("被分配员工","assigned_user","String",10,"",false));
 		STUDENT_FIELDS_LIST.add(new XLSField("被分配工作","assigned_job","String",10,"",false));
@@ -158,92 +161,4 @@ public class XLSTemplateValidator {
 		
 	}
 
-	/**
-	 * 边框
-	 * 
-	 * @param wb
-	 * @return
-	 */
-	public static CellStyle createStyleCell(Workbook wb) {
-		CellStyle cellStyle = wb.createCellStyle();
-		// 设置一个单元格边框颜色
-		cellStyle.setBorderBottom(CellStyle.BORDER_THIN);
-		cellStyle.setBorderTop(CellStyle.BORDER_THIN);
-		cellStyle.setBorderLeft(CellStyle.BORDER_THIN);
-		cellStyle.setBorderRight(CellStyle.BORDER_THIN);
-		// 设置一个单元格边框颜色
-		cellStyle.setRightBorderColor(IndexedColors.BLACK.getIndex());
-		cellStyle.setLeftBorderColor(IndexedColors.BLACK.getIndex());
-		cellStyle.setBottomBorderColor(IndexedColors.BLACK.getIndex());
-		cellStyle.setTopBorderColor(IndexedColors.BLACK.getIndex());
-		return cellStyle;
-	}
-
-	/**
-	 * 设置文字在单元格里面的位置 CellStyle.ALIGN_CENTER CellStyle.VERTICAL_CENTER
-	 * 
-	 * @param cellStyle
-	 * @param halign
-	 * @param valign
-	 * @return
-	 */
-	public static CellStyle setCellStyleAlignment(CellStyle cellStyle, short halign, short valign) {
-		// 设置上下
-		cellStyle.setAlignment(CellStyle.ALIGN_CENTER);
-		// 设置左右
-		cellStyle.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
-		return cellStyle;
-	}
-
-	/**
-	 * 格式化单元格 如#,##0.00,m/d/yy去HSSFDataFormat或XSSFDataFormat里面找
-	 * 
-	 * @param cellStyle
-	 * @param fmt
-	 * @return
-	 */
-	public static CellStyle setCellFormat(CreationHelper helper, CellStyle cellStyle, String fmt) {
-		// 还可以用其它方法创建format
-		cellStyle.setDataFormat(helper.createDataFormat().getFormat(fmt));
-		return cellStyle;
-	}
-
-	/**
-	 * 前景和背景填充的着色
-	 * 
-	 * @param cellStyle
-	 * @param bg
-	 *            IndexedColors.ORANGE.getIndex();
-	 * @param fg
-	 *            IndexedColors.ORANGE.getIndex();
-	 * @param fp
-	 *            CellStyle.SOLID_FOREGROUND
-	 * @return
-	 */
-	public static CellStyle setFillBackgroundColors(CellStyle cellStyle, short bg, short fg, short fp) {
-		// cellStyle.setFillBackgroundColor(bg);
-		cellStyle.setFillForegroundColor(fg);
-		cellStyle.setFillPattern(fp);
-		return cellStyle;
-	}
-
-	/**
-	 * 设置字体
-	 * 
-	 * @param wb
-	 * @return
-	 */
-	public static Font createTitleFonts(Workbook wb) {
-		// 创建Font对象
-		org.apache.poi.ss.usermodel.Font font = wb.createFont();
-
-		font.setFontHeightInPoints((short) 10); // 字体高度
-		font.setColor(HSSFColor.BLACK.index); // 字体颜色
-		font.setFontName(" 黑体 "); // 字体
-		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD); // 宽度
-		font.setItalic(false); // 是否使用斜体
-		font.setStrikeout(false); // 是否使用划线
-		
-		return font;
-	}
 }
